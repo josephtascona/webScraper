@@ -8,17 +8,17 @@ async function scrapeProduct(url) {
     await page.waitForXPath('//*[@id="imgBlkFront"]')
     const [el] = await page.$x('//*[@id="imgBlkFront"]');
     const src = el.getProperty('src');
-    const imgURL = (await src).jsonValue;
+    const imgURL = (await src).jsonValue();
 
     await page.waitForXPath('//*[@id="productTitle"]')
     const [el2] = await page.$x('//*[@id="productTitle"]');
     const txt = el2.getProperty('textContent');
-    const title = (await txt).jsonValue;
+    const title = (await txt).jsonValue();
 
     await page.waitForXPath('//*[@id="price"]')
     const [el3] = await page.$x('//*[@id="price"]');
     const txt2 = el3.getProperty('textContent');
-    const price = (await txt2).jsonValue;
+    const price = (await txt2).jsonValue();
 
     console.log({imgURL, title, price});
     await browser.close();
