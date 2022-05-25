@@ -18,5 +18,6 @@ async function scrapePage(url) {
     const value = (await txt2).jsonValue();
 
     console.log({imgURL, title, value});
+    await browser.close();
 }
 scrapePage('https://en.wikipedia.org/wiki/Julius_Caesar');
